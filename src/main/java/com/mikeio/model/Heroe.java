@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Heroe {
     private Integer idHero;
     private String name;
-    private Byte estatus;
+    private Boolean estatus;
     private String superPower;
 
     @Id
@@ -36,11 +36,11 @@ public class Heroe {
 
     @Basic
     @Column(name = "estatus", nullable = false)
-    public Byte getEstatus() {
+    public Boolean getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(Byte estatus) {
+    public void setEstatus(Boolean estatus) {
         this.estatus = estatus;
     }
 

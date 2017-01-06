@@ -1,7 +1,6 @@
 package com.mikeio.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by SISTEMAS03-PC on 03/01/2017.
@@ -26,10 +25,19 @@ public class AngularProperties {
         private String username;
         private String password;
         private String driverClassName;
-        private String dataSourceClassName;
         private String cachePrepStmts;
         private String prepStmtCacheSize;
         private String prepStmtCacheSqlLimit;
+
+        private Hikari hikari;
+
+        public Hikari getHikari() {
+            return hikari;
+        }
+
+        public void setHikari(Hikari hikari) {
+            this.hikari = hikari;
+        }
 
         public String getUrl() {
             return url;
@@ -63,13 +71,6 @@ public class AngularProperties {
             this.driverClassName = driverClassName;
         }
 
-        public String getDataSourceClassName() {
-            return dataSourceClassName;
-        }
-
-        public void setDataSourceClassName(String dataSourceClassName) {
-            this.dataSourceClassName = dataSourceClassName;
-        }
 
         public String getCachePrepStmts() {
             return cachePrepStmts;
@@ -125,6 +126,55 @@ public class AngularProperties {
 
         public void setFormatSql(String formatSql) {
             this.formatSql = formatSql;
+        }
+    }
+
+    public static class Hikari {
+
+        private String dataSourceClassName;
+        private String connectionTestQuery;
+        private String minimumIdle;
+        private String maximumPoolSize;
+        private String poolName;
+
+        public String getDataSourceClassName() {
+            return dataSourceClassName;
+        }
+
+        public void setDataSourceClassName(String dataSourceClassName) {
+            this.dataSourceClassName = dataSourceClassName;
+        }
+
+        public String getConnectionTestQuery() {
+            return connectionTestQuery;
+        }
+
+        public void setConnectionTestQuery(String connectionTestQuery) {
+            this.connectionTestQuery = connectionTestQuery;
+        }
+
+        public String getMinimumIdle() {
+            return minimumIdle;
+        }
+
+        public void setMinimumIdle(String minimumIdle) {
+            this.minimumIdle = minimumIdle;
+        }
+
+        public String getMaximumPoolSize() {
+            return maximumPoolSize;
+        }
+
+        public void setMaximumPoolSize(String maximumPoolSize) {
+            this.maximumPoolSize = maximumPoolSize;
+        }
+
+        public String getPoolName() {
+            return poolName;
+        }
+
+        public void setPoolName(String poolName) {
+            this.poolName = poolName;
         }
     }
 }

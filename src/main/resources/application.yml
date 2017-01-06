@@ -4,32 +4,34 @@ mikeio:
         url: jdbc:mysql://localhost:3306/heroes
         username: root
         password:
-        driverClassName: com.mysql.jdbc.Driver
-        dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
         cachePrepStmts: true
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
-#        hikari:
-#            connection-test-query: SELECT 1 FROM DUAL
-#            minimum-idle: 1
-#            maximum-pool-size: 5
-#            pool-name: MikeIOPool
+        hikari:
+            dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+            connection-test-query: SELECT 1 FROM DUAL
+            minimum-idle: 1
+            maximum-pool-size: 5
+            pool-name: MikeIOPool
     hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         show_sql: true
         format_sql: true
 
 
-spring:
-    datasource:
-        hikari:
-            connection-test-query: SELECT 1 FROM DUAL
-            minimum-idle: 1
-            maximum-pool-size: 5
-            pool-name: MikeIOPool
-#        driver-class-name: com.mysql.jdbc.Driver}
+#spring:
+#    datasource:
+#        hikari:
+#            connection-test-query: SELECT 1 FROM DUAL
+#            minimum-idle: 1
+#            maximum-pool-size: 5
+#            pool-name: MikeIOPool
+#            driver-class-name: com.mysql.jdbc.Driver
+#        url: jdbc:mysql://localhost:3306/heroes
+#        username: root
+#        password:
+#        type:  com.zaxxer.hikari.HikariDataSource
 
-        url: jdbc:mysql://localhost:3306/heroes
-        username: root
-        password:
-        type:  com.zaxxer.hikari.HikariDataSource
+
+server:
+  port: 8092

@@ -3,6 +3,8 @@ package com.mikeio.config;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,10 +22,18 @@ public class DatabaseConfig {
 
     @Inject
     private AngularProperties angularProperties;
-
+//
+//    @ConfigurationProperties(prefix = "spring.datasource", ignoreUnknownFields = true)
+//    @Bean
+//    public DataSource getDataSource() {
+//        return DataSourceBuilder
+//                .create()
+//                .build();
+//
+//    }
 
     @Bean(name = "dataSource", destroyMethod = "close")
-    public DataSource getDataSource() {
+    public DataSource getDataSourceñ() {
 
         Properties props = new Properties();
         props.setProperty("dataSourceClassName", angularProperties.getDatabase().getHikari().getDataSourceClassName());

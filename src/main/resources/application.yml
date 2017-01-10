@@ -21,16 +21,28 @@ mikeio:
 
 #spring:
 #    datasource:
-#        hikari:
-#            connection-test-query: SELECT 1 FROM DUAL
-#            minimum-idle: 1
-#            maximum-pool-size: 5
-#            pool-name: MikeIOPool
-#            driver-class-name: com.mysql.jdbc.Driver
+#        type:  com.zaxxer.hikari.HikariDataSource
 #        url: jdbc:mysql://localhost:3306/heroes
 #        username: root
 #        password:
-#        type:  com.zaxxer.hikari.HikariDataSource
+##        minimumIdle: 1
+##        maximumPoolSize: 5
+##        dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+#        hikari:
+#                    minimum-idle: 12
+#                    maximum-pool-size: 12
+#                    pool-name: MikeIOPool
+#                    connection-test-query: SELECT 1 FROM DUAL
+#
+#
+##                    data-source-class-name: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+##                    driver-class-name: org.mariadb.jdbc.MySQLDataSource
+#
+#        dataSourceProperties.cachePrepStmts: true
+#        dataSourceProperties.prepStmtCacheSize: 250
+#        dataSourceProperties.prepStmtCacheSqlLimit: 2048
+#
+
 
 
 

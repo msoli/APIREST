@@ -1,5 +1,7 @@
 package com.mikeio.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 /**
@@ -8,6 +10,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "heroe")
 public class Heroe {
+
+    @JsonProperty("id")
     private Integer idHero;
     private String name;
     private Boolean estatus;

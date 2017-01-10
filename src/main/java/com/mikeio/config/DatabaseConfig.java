@@ -22,14 +22,14 @@ public class DatabaseConfig {
 
     @Inject
     private AngularProperties angularProperties;
-//
-//    @ConfigurationProperties(prefix = "spring.datasource", ignoreUnknownFields = true)
+
+    //
 //    @Bean
-//    public DataSource getDataSource() {
-//        return DataSourceBuilder
-//                .create()
-//                .build();
+//    @ConfigurationProperties(prefix = "spring.datasource")
+//    public DataSource dataSource() {
 //
+//        DataSource ds =DataSourceBuilder.create().build();
+//        return ds;
 //    }
 
     @Bean(name = "dataSource", destroyMethod = "close")

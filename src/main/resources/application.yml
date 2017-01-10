@@ -48,3 +48,20 @@ mikeio:
 
 server:
   port: 8092
+
+#http://www.baeldung.com/spring-boot-actuators
+info:
+  app:
+    name: Spring MikeIO
+endpoints:
+  shutdown:
+    enabled: true
+    path: apagar
+
+#security:
+#    user:
+#      name: user # Default user name.
+#      password: test # Password for the default user name. A random password is logged on startup by default.
+#
+
+

@@ -1,62 +1,35 @@
 package com.mikeio.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import lombok.Data;
 import javax.persistence.*;
 
 /**
  * Created by SISTEMAS03-PC on 04/01/2017.
  */
 @Entity
+@Data
 @Table(name = "heroe")
 public class Heroe {
 
     @JsonProperty("id")
-    private Integer idHero;
-    private String name;
-    private Boolean estatus;
-    private String superPower;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_hero", nullable = false)
-    public Integer getIdHero() {
-        return idHero;
-    }
-
-    public void setIdHero(Integer idHero) {
-        this.idHero = idHero;
-    }
+    private Integer idHero;
 
     @Basic
     @Column(name = "name", nullable = false, length = 50)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String name;
 
     @Basic
     @Column(name = "estatus", nullable = false)
-    public Boolean getEstatus() {
-        return estatus;
-    }
-
-    public void setEstatus(Boolean estatus) {
-        this.estatus = estatus;
-    }
+    private Boolean estatus;
 
     @Basic
     @Column(name = "super_power", nullable = false, length = 100)
-    public String getSuperPower() {
-        return superPower;
-    }
+    private String superPower;
 
-    public void setSuperPower(String superPower) {
-        this.superPower = superPower;
-    }
 
     @Override
     public boolean equals(Object o) {

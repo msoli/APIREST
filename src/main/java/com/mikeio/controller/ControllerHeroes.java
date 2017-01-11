@@ -24,6 +24,8 @@ public class ControllerHeroes {
     @GetMapping(path = "findAll")
     public ResponseEntity<List<Heroe>> findAll() {
 
+        Heroe e = new Heroe();
+
         List<Heroe> items = heroeDAO.findAllByEstatus(true);
         return new ResponseEntity<List<Heroe>>(items, HttpStatus.OK);
     }

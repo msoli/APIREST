@@ -33,7 +33,9 @@ public class DatabaseConfig {
 //    }
 
     @Bean(name = "dataSource", destroyMethod = "close")
-    public DataSource getDataSourceñ() {
+    public DataSource getDataSource() {
+
+
 
         Properties props = new Properties();
         props.setProperty("dataSourceClassName", angularProperties.getDatabase().getHikari().getDataSourceClassName());

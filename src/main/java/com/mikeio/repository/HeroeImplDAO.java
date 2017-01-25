@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created by SISTEMAS03-PC on 04/01/2017.
  */
+@SuppressWarnings("JpaQlInspection")
 @Repository
 public class HeroeImplDAO implements HeroeDAO {
 
@@ -43,9 +44,53 @@ public class HeroeImplDAO implements HeroeDAO {
     public List<Heroe> findAllByEstatus(boolean estatus) {
 
         return sf.getCurrentSession()
-                 .createQuery("from Heroe where estatus = :estatus")
-                 .setParameter("estatus", estatus)
-                 .list();
+                .createQuery("from Heroe where estatus = :estatus")
+                .setParameter("estatus", estatus)
+                .list();
     }
+
+    /**
+     * obtener toda la lista de heroes  por estatus
+     *
+     * @param name
+     * @return
+     */
+    @Override
+    public List<Heroe> findAllByName(String name) {
+
+        return sf.getCurrentSession()
+                .createQuery("from Heroe where name like (:name)")
+                .setParameter("name", "%"+name+"%")
+                .list();
+    }
+
+
+    @Override
+    public Heroe findById(int id) {
+
+        return (Heroe) sf.getCurrentSession()
+                .createQuery("from Heroe where idHero = :id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+
+    @Override
+    public int delete(int id) {
+        return sf.getCurrentSession()
+                .createQuery("delete from Heroe where idHero = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
+
+    @Override
+    public int update(Heroe item) {
+        return sf.getCurrentSession()
+                .createQuery("update from Heroe set name =:name where idHero = :id")
+                .setParameter("id", item.getIdHero())
+                .setParameter("name", item.getName())
+                .executeUpdate();
+    }
+
 
 }

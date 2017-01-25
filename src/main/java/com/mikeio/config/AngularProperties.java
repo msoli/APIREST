@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class AngularProperties {
 
     private final Database database = new Database();
+
     private final Hibernate hibernate = new Hibernate();
 
     public Hibernate getHibernate() {

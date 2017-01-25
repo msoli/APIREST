@@ -10,8 +10,19 @@ import java.util.List;
  */
 @Transactional(readOnly = true)
 public interface HeroeDAO {
+
     @Transactional
     Integer create(Heroe item);
 
     List<Heroe> findAllByEstatus(boolean estatus);
+
+    List<Heroe> findAllByName(String name);
+
+    Heroe findById(int id);
+
+    @Transactional
+    int delete(int id);
+
+    @Transactional
+    int update(Heroe item);
 }

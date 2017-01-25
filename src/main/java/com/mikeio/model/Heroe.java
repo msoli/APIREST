@@ -30,6 +30,12 @@ public class Heroe {
     @Column(name = "super_power", nullable = false, length = 100)
     private String superPower;
 
+    public Heroe() {
+    }
+
+    public Heroe(String name) {
+        this.name = name;
+    }
 
     @Override
     public boolean equals(Object o) {
